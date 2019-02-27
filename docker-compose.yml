@@ -1,11 +1,7 @@
 version: '2'
 services:
     doorman:
-        image: doorman
-        container_name: "doorman"
-        build:
-            context: ./doorman
-            dockerfile: Dockerfile_doorman
+        image: docker.io/xtha/doorman
         links:
           - doormanpostgres
         expose:
@@ -25,14 +21,13 @@ services:
 
     doormanpostgres:
         image: postgres:alpine
-        container_name: "doorman-postgres"
         volumes:
           - postgresdata:/var/lib/postgresql/data
         expose:
           - 5432
         environment:
           - POSTGRES_USER=doorman
-          - POSTGRES_PASSWORD=prprprpr
+          - POSTGRES_PASSWORD=doorman
 volumes:
   postgresdata:
     driver: local
