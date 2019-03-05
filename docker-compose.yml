@@ -1,7 +1,7 @@
 version: '2'
 services:
     doorman:
-        image: docker.io/xtha/doorman
+        image: xtha/doorman
         links:
           - doormanpostgres
         expose:
